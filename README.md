@@ -1,2 +1,2 @@
-# reactdex
+# Reactdex
 PokéAPI + React app

@@ -1,0 +1,17 @@
+.Footer {
+  background-color: #E6E6E6;
+  text-align: center;
+  padding: 0.5em 1em;
+}
+
+.Footer a{
+  color: inherit;
+}
+
+.Footer a:link{
+  text-decoration: none;
+}
+
+.Footer a:hover{
+  text-decoration: underline;
+}
