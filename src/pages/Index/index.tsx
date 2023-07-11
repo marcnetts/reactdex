@@ -25,15 +25,19 @@ function getAllMonnns() {
   // });
 }
 
+export interface IndexProps {
+  monData: MonDataBasic[]
+}
 
 // function Index({mons}: {mons: MonData}) {
-function Index() {
-  const [isLoading, setLoading] = useState<boolean>();
+function Index({monData}: IndexProps) {
+  const [isLoading, setLoading] = useState<boolean>(true);
   const [monsGeneralData, setMonsGeneralData] = useState<MonDataBasic[]>([]);
-
+  const [searchInput, setSearchInput] = useState("");
+  
   useEffect(() => {
-    if(!monsGeneralData.length)
-      getAllMons();
+    if(monData != monsGeneralData)
+      setMonsGeneralData(monData);
   }, [])
 
   // async function getAllMonsLegacy() {
@@ -52,7 +56,6 @@ function Index() {
     }
     
     var apiMonData: MonDataBasic[] = [];
-
     Promise.all(endpoints.map((endpoint) => axios.get(endpoint)
       .then((response) => {
         apiMonData.push(response.data);
