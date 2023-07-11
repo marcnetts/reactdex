@@ -1,0 +1,16 @@
+.SearchArea {
+  padding: 2em 1em;
+  width: 25vw;
+  flex: none;
+}
+
+.input{
+  width: 90%;
+  border-radius: 100px;
+  height: 2.4em;
+  background: url('https://cdn-icons-png.flaticon.com/512/3031/3031293.png') no-repeat scroll;
+  background-position-y: center;
+  background-position-x: 0.8em;
+  background-size: 1em;
+  padding-left: 2.5em;
+}

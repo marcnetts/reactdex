@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 // import videos from "../../json/db.json";
 import styles from "./Index.module.css";
 import axios from "axios";
-import AppRoutes from "../../routes";
-
 
 interface ApiMonData{
   results: MonDataBasic[]
@@ -68,8 +66,8 @@ function Index() {
   }
 
   return (
-    <>
-      {monsGeneralData.length}
+    <div>
+      <div>{monsGeneralData.length}</div>
       {/* <Banner imagem="home"></Banner>
       <Titulo>
         <h1>Um lugar para guardar seus vídeos e filmes!</h1>
@@ -92,7 +90,7 @@ function Index() {
             )
         })}
       </section>
-    </>
+    </div>
   );
 }
 
