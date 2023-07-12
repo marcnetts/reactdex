@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import Banner from "../../components/Banner";
 // import Card from "../../components/Card";
 // import Titulo from "../../components/Titulo";
@@ -26,15 +26,17 @@ function getAllMonnns() {
 }
 
 export interface IndexProps {
+  searchedMon: string,
   monData: MonDataBasic[]
 }
 
 // function Index({mons}: {mons: MonData}) {
-function Index({monData}: IndexProps) {
+function Index({searchedMon, monData}: IndexProps) {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [monsGeneralData, setMonsGeneralData] = useState<MonDataBasic[]>([]);
-  const [searchInput, setSearchInput] = useState("");
-  
+  // const [searchInput, setSearchInput] = useState(searchedMon);
+  // const searchInput = useContext(MyContext)
+
   useEffect(() => {
     if(monData != monsGeneralData)
       setMonsGeneralData(monData);
@@ -65,7 +67,7 @@ function Index({monData}: IndexProps) {
   // console.log(axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'));
   
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <div className="App">Loading... ah, {searchInput}</div>;
   }
 
   return (
@@ -84,12 +86,14 @@ function Index({monData}: IndexProps) {
           // return <Card {...mon} key={mon.id} />
           // return <div {...mon} key={mon.name}>{mon.name}</div>
           return (
+            <><div>{searchInput}</div>
             <div key={mon.order} className={styles.mon_container}>
               {/* {mon.name} */}
               <a href="" className={styles.mon_link}>
-              <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.order}.svg`} alt={mon.name} className={styles.mon_svg} />
+                <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.order}.svg`} alt={mon.name} className={styles.mon_svg} />
               </a>
             </div>
+            </>
             )
         })}
       </section>

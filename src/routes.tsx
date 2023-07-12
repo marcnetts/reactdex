@@ -3,8 +3,9 @@ import { Header } from "./components/Header";
 import { Footer, SearchMonsArea } from "./components";
 import Container from "./components/Container";
 import Index from "./pages/Index";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { UserContext, UserContextProvider } from "./assets/contexts/UserContext";
 
 interface MonDataBasic{
   name: string,
@@ -17,7 +18,7 @@ function AppRoutes() {
   const [monsGeneralData, setMonsGeneralData] = useState<MonDataBasic[]>([]);
   
   const updateSearchedMon = (name: string):void => {
-    setSearchInput(name)
+    // setSearchInput(name)
   }
   
   async function getAllMons() {
@@ -45,14 +46,16 @@ function AppRoutes() {
       <Header />
       <Container>
         {/* <FavoritosProvider> */}
+        <UserContextProvider>
           <SearchMonsArea updateName={updateSearchedMon}></SearchMonsArea>
           <div>{searchInput}</div>
           <div>{monsGeneralData.length}</div>
           <Routes>
-            <Route path="/" element={<Index monData={monsGeneralData} />}></Route>
+            <Route path="/" element={<Index searchedMon={searchInput} monData={monsGeneralData} />}></Route>
             {/* <Route path="/favoritos" element={<Favoritos />}></Route> */}
           </Routes>
         {/* </FavoritosProvider> */}
+        </UserContextProvider>
       </Container>
       <Footer />
     </BrowserRouter>
