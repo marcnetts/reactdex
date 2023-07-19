@@ -47,11 +47,12 @@ function AppRoutes() {
       <Container>
         {/* <FavoritosProvider> */}
         <UserContextProvider>
-          <SearchMonsArea updateName={updateSearchedMon}></SearchMonsArea>
+          <SearchMonsArea></SearchMonsArea>
           <div>{searchInput}</div>
           <div>{monsGeneralData.length}</div>
           <Routes>
-            <Route path="/" element={<Index searchedMon={searchInput} monData={monsGeneralData} />}></Route>
+            {/* <Route path="/" element={<Index searchedMon={searchInput} monData={monsGeneralData} />}></Route> */}
+            <Route path="/" element={<Index />}></Route>
             {/* <Route path="/favoritos" element={<Favoritos />}></Route> */}
           </Routes>
         {/* </FavoritosProvider> */}
