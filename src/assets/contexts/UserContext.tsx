@@ -1,26 +1,39 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
 
 type UserContextProps = {
   children: ReactNode;
 }
 
+export interface MonDataDex {
+  //https://pokeapi.co/api/v2/pokemon-species/1/
+  id: number,
+  name: string,
+  flavor_text_entries:[{
+    flavor_text: string,
+    language: { name:string },
+    version: { name:string }
+  }]
+}
+
 export interface MonDataBasic{
+  id: number,
   name: string,
   order: number,
-  dexNumber: number,
   stats:[{
     base_stat: number,
-    stat: {
-        name: string
-    }
+    stat: { name: string }
+  }],
+  types:[{
+    slot: number,
+    type: { name: string }
   }]
-  sprites:{
-    other:{
-      dream_world:{
-        front_default: string
-      }
-    }
-  }
+  // sprites:{
+  //   other:{
+  //     dream_world:{
+  //       front_default: string
+  //     }
+  //   }
+  // }
 }
 
 type UserContextType = { //not necessary for now

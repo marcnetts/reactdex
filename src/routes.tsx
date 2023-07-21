@@ -6,6 +6,7 @@ import Index from "./pages/Index";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext, UserContextProvider } from "./assets/contexts/UserContext";
+import MonDetails from "./pages/MonDetails";
 
 interface MonDataBasic{
   name: string,
@@ -50,9 +51,10 @@ function AppRoutes() {
           <SearchMonsArea></SearchMonsArea>
           <div>{searchInput}</div>
           <div>{monsGeneralData.length}</div>
-          <Routes>
+          <Index />
+            <Routes>
             {/* <Route path="/" element={<Index searchedMon={searchInput} monData={monsGeneralData} />}></Route> */}
-            <Route path="/" element={<Index />}></Route>
+            <Route path="/mon/:monId" element={<MonDetails />}></Route>
             {/* <Route path="/favoritos" element={<Favoritos />}></Route> */}
           </Routes>
         {/* </FavoritosProvider> */}
