@@ -8,26 +8,6 @@ import axios from "axios";
 import { UserContext } from "../../assets/contexts/UserContext";
 import { MonDataBasic } from "../../assets/contexts/UserContext";
 
-interface ApiMonData{
-  results: MonDataBasic[]
-}
-// interface MonDataBasic{
-//   name: string,
-//   order: number,
-//   actualOrder:number
-// }
-
-function getAllMonnns() {
-  // return fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
-  // .then((response) => response.json())
-  // .then((responseJson) => {
-  //   return responseJson.results as MonDataBasic[];
-  // })
-  // .catch((error) => {
-  //   console.error(getAllMons.name, error);
-  // });
-}
-
 export interface IndexProps {
   searchedMon: string,
   // setSearchedMon: (newState: string) => void,
@@ -50,14 +30,6 @@ function Index() {
       getAllMons()
   }, [])
 
-  // async function getAllMonsLegacy() {
-  //   axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
-  //   .then((response) => setMonsGeneralData(response.data))
-  //   .catch((err) => {
-  //     console.error("monsGeneralData err: " + err);
-  //   });
-  // }
-
   async function getAllMons() {
     setLoading(true);
     var endpoints = [];
@@ -73,7 +45,6 @@ function Index() {
         setMonData(apiMonData);})));
     setLoading(false);
   }
-  // console.log(axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'));
   
   if (isLoading) {
     return <div className="App">Loading... ah, {searchedMon} + {monData.length}</div>;
@@ -91,7 +62,6 @@ function Index() {
           // return <Card {...mon} key={mon.id} />
           // return <div {...mon} key={mon.name}>{mon.name}</div>
           return (
-            <>
             <div key={mon.order} className={styles.mon_container}>
               {/* {mon.name} {mon.id} {JSON.stringify(mon.stats)} */}
               <a href={`/mon/${mon.id}`} className={styles.mon_link}>
@@ -99,7 +69,6 @@ function Index() {
                 {/* <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${mon.order}.svg`} alt={mon.name} className={styles.mon_svg} /> */}
               </a>
             </div>
-            </>
             )
         })}
       </section>
