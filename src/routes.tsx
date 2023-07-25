@@ -49,8 +49,6 @@ function AppRoutes() {
         {/* <FavoritosProvider> */}
         <UserContextProvider>
           <SearchMonsArea></SearchMonsArea>
-          <div>{searchInput}</div>
-          <div>{monsGeneralData.length}</div>
           <Index />
             <Routes>
             {/* <Route path="/" element={<Index searchedMon={searchInput} monData={monsGeneralData} />}></Route> */}

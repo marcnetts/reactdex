@@ -1,27 +1,14 @@
-.container{
+.monDetails{
+  width: 25vw;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 1em;
+  flex-direction: column;
+  flex: none;
+  padding: 2em 1em;
 }
 
-.mon_container{
-  height: 150px;
-  width: 150px;
-  background-image: url('https://icon-library.com/images/pokeball-icon-transparent/pokeball-icon-transparent-28.jpg');
-  background-size: contain;
-  margin: 10px;
-  
+.mon_card{
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
-.mon_link{
-  display: contents;
-}
-
 .mon_svg{
-  max-height: 65%;
-  max-width: 65%;
+  width: 50%;
 }
