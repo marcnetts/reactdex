@@ -42,8 +42,9 @@ function Index() {
       .then((response) => {
         let mon = response.data as MonDataBasic;
         apiMonData.push(mon);
-        setMonData(apiMonData);})));
-    setLoading(false);
+        setMonData(apiMonData);
+        setLoading(false);
+      })));
   }
   
   if (isLoading) {
