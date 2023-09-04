@@ -14,3 +14,17 @@
   background-size: 1em;
   padding-left: 2.5em;
 }
+
+.mon_container {
+  padding: 0.2em;
+}
+
+.mon_link {
+  color: unset;
+  display: block;
+  text-decoration: none;
+}
+
+.mon_container:hover {
+  color: brown;
+}

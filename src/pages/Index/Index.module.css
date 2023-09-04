@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .mon_link{
@@ -24,4 +25,13 @@
 .mon_svg{
   max-height: 65%;
   max-width: 65%;
+}
+
+.mon_number{
+  background-color: #CCE5DF;
+  border-radius: 15px;
+  padding: .1em .4em;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
 }

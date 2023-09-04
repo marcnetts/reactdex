@@ -1,13 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-// import Banner from "../../components/Banner";
-// import Card from "../../components/Card";
-// import Titulo from "../../components/Titulo";
-// import videos from "../../json/db.json";
 import styles from "./MonDetails.module.css";
 import axios from "axios";
 import { DexDataBasic, MonDataDex, UserContext } from "../../assets/contexts/UserContext";
 import { MonDataBasic } from "../../assets/contexts/UserContext";
 import { useParams } from "react-router-dom";
+import MonType from "../../components/MonType";
 
 export interface IndexProps {
   searchedMon: string,
@@ -56,37 +53,25 @@ function MonDetails() {
     <div className={styles.monDetails}>
       <div className={styles.mon_card}>
         <img src={`https://www.centropkmn.com/pokes/dream-world/${selectedMon?.id}.svg`} alt={selectedMon?.name} className={styles.mon_svg} />
-        <div>
-          <div>#{selectedMon?.order.toString().padStart(3, '0')}</div>
-          <div>{selectedMon?.name.charAt(0).toUpperCase() + selectedMon?.name.slice(1)}</div>
-          {!selectedMon ? '' : selectedMon.types.map((type, key) => {
-            return (
-              <div key={type.type.name}>{type.type.name}</div>
-            )
-          })}
+        <div className={styles.max_width}>
+          <div>#{selectedMon?.id.toString().padStart(3, '0')}</div>
+          <div className={styles.boldtext}>{selectedMon?.name.charAt(0).toUpperCase() + selectedMon?.name.slice(1)}</div>
+          <div className={styles.flexwrap}>
+            {!selectedMon ? '' : selectedMon.types.map((type, key) => {
+              return (
+                <MonType type={type.type.name}></MonType>
+                // <div key={type.type.name}>{type.type.name}</div>
+              )
+            })}
+          </div>
         </div>
       </div>
-      <div>{dexData[+id!]?.filter(dex => dex.language == 'en')[0].flavor_text}</div>
+      <div className={styles.flavor_text}>{dexData[+id!]?.filter(dex => dex.language == 'en')[0].flavor_text}</div>
       {!selectedMon ? '' : selectedMon.stats.map((stat, key) => {
         return (
           <div key={stat.stat.name}>{stat.stat.name} {stat.base_stat}</div>
         )
       })}
-      {/* <Card id="1" titulo="Gato de Botas 2" capa="https://upload.wikimedia.org/wikipedia/pt/7/78/Puss_in_Boots_The_Last_Wish_poster.jpg" /> */}
-      {/* <section className={styles.container}>
-        {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon, key) => {
-          return (
-            <>
-            <div key={mon.order} className={styles.mon_container}>
-              {mon.name} {mon.id}
-              <a href={`/mon/${mon.id}`} className={styles.mon_link}>
-                <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.id}.svg`} alt={mon.name} className={styles.mon_svg} />
-              </a>
-            </div>
-            </>
-            )
-        })}
-      </section> */}
     </div>
   );
 }

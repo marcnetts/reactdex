@@ -69,6 +69,7 @@ function Index() {
                 <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.id}.svg`} alt={mon.name} className={styles.mon_svg} />
                 {/* <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${mon.order}.svg`} alt={mon.name} className={styles.mon_svg} /> */}
               </a>
+              <div className={styles.mon_number}># {mon.id.toString().padStart(3, '0')}</div>
             </div>
             )
         })}

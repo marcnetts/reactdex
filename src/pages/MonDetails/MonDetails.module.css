@@ -8,7 +8,27 @@
 
 .mon_card{
   display: flex;
+  text-align: justify;
+  width: 100% !important;
 }
+
+.flavor_text{
+  text-align: justify;
+}
+
 .mon_svg{
   width: 50%;
+}
+
+.max_width{
+  width: 100%;
+}
+
+.boldtext{
+  font-weight: bold;
+}
+
+.flexwrap{
+  display: flex;
+  flex-wrap: wrap;
 }

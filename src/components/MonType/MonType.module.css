@@ -1,0 +1,34 @@
+:root{
+  --normal: #CBCBCB;
+  --psychic: #E986CD;
+  --flying: #86E9D1;
+  --grass: #8EE986;
+  --poison: #CF86E9;
+  --fire: #F45F5F;
+  --electric: #E9C134;
+  --water: #349DE9;
+  --fighting: #F9AC38;
+  --ice: #70EFE0;
+  --rock: #875E20;
+  --ground: #C07C2B;
+  --ghost: #6334E9;
+  --dragon: #CF34E9;
+  --metal: #868686;
+  --dark: #171717;
+  --fairy: #EF56D7;
+}
+
+.mon_type{
+  width: fit-content;
+  background-color: wheat;
+  border-radius: 15px;
+  padding: .1em .4em;
+  margin-right: .2em;
+  margin-bottom: .2em;
+  text-align: center;
+  color: white;
+}
+
+.water{
+  background-color: var(--water);
+}
