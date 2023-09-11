@@ -1,4 +1,4 @@
-:root{
+/* :root{
   --normal: #CBCBCB;
   --psychic: #E986CD;
   --flying: #86E9D1;
@@ -16,7 +16,7 @@
   --metal: #868686;
   --dark: #171717;
   --fairy: #EF56D7;
-}
+} */
 
 .mon_type{
   width: fit-content;
@@ -27,8 +27,5 @@
   margin-bottom: .2em;
   text-align: center;
   color: white;
-}
-
-.water{
-  background-color: var(--water);
+  display: inline-block;
 }

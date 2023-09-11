@@ -31,14 +31,14 @@ export function SearchMonsArea() {
         onChange={handleChange}
         value={searchedMon}
       />
-      <div>
+      <div className={styles.y_scroll + ' ' + styles.padding_top}>
         {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon, key) => {
             // return <Card {...mon} key={mon.id} />
             // return <div {...mon} key={mon.name}>{mon.name}</div>
             return (
               <div key={mon.order} className={styles.mon_container}>
                 <a href={`/mon/${mon.id}`} className={styles.mon_link}>
-                  #{mon.id.toString().padStart(3, '0')} {mon.name}
+                  <div className={styles.mon_number}>#{mon.id.toString().padStart(3, '0')}</div> <div>{mon.name.charAt(0).toUpperCase() + mon.name.slice(1)}</div>
                 </a>
               </div>
               )

@@ -56,10 +56,10 @@ function MonDetails() {
         <div className={styles.max_width}>
           <div>#{selectedMon?.id.toString().padStart(3, '0')}</div>
           <div className={styles.boldtext}>{selectedMon?.name.charAt(0).toUpperCase() + selectedMon?.name.slice(1)}</div>
-          <div className={styles.flexwrap}>
+          <div>
             {!selectedMon ? '' : selectedMon.types.map((type, key) => {
               return (
-                <MonType type={type.type.name}></MonType>
+                <MonType key={type.type.name} type={type.type.name}></MonType>
                 // <div key={type.type.name}>{type.type.name}</div>
               )
             })}

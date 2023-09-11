@@ -1,7 +1,8 @@
 .SearchMonsArea {
-  padding: 2em 1em;
+  padding: 2em 1em 0em 1em;
   width: 25vw;
   flex: none;
+  max-height: 100%;
 }
 
 .input{
@@ -21,10 +22,23 @@
 
 .mon_link {
   color: unset;
-  display: block;
   text-decoration: none;
+  display: flex;
+}
+
+.mon_number{
+  width: 30%;
 }
 
 .mon_container:hover {
   color: brown;
+}
+
+.y_scroll{
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.padding_top{
+  padding-top: 10px;
 }

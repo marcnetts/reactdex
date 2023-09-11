@@ -52,7 +52,7 @@ function Index() {
   }
 
   return (
-    <div>
+    <div className={styles.y_scroll}>
       <div>asdasd</div>
       <div>{monData.length}</div>
       <div>{searchedMon}</div>

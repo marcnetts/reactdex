@@ -35,3 +35,7 @@
   bottom: 5%;
   right: 5%;
 }
+
+.y_scroll{
+  overflow-y: auto;
+}
