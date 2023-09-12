@@ -28,6 +28,23 @@
   font-weight: bold;
 }
 
+.stat_container{
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.stat_container, .flavor_text{
+  padding: 0.8vh 0;
+}
+
+.stat_name{
+  padding-right: 5%;
+  width: 20%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .flexwrap{
   display: flex;
   flex-wrap: wrap;

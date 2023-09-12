@@ -5,6 +5,7 @@ import { DexDataBasic, MonDataDex, UserContext } from "../../assets/contexts/Use
 import { MonDataBasic } from "../../assets/contexts/UserContext";
 import { useParams } from "react-router-dom";
 import MonType from "../../components/MonType";
+import ProgressBar from "../../components/ProgressBar";
 
 export interface IndexProps {
   searchedMon: string,
@@ -45,6 +46,15 @@ function MonDetails() {
     setLoading(false);
   }
 
+  const _displayed_stats = {
+    'hp': 'HP',
+    'attack': 'Attack',
+    'defense': 'Defense',
+    'special-attack': 'Sp. Atk',
+    'special-defense': 'Sp. Def',
+    'speed': 'Speed',
+  }
+
   if (isLoading) {
     return <div className={styles.monDetails}>Loading...</div>;
   }
@@ -60,7 +70,6 @@ function MonDetails() {
             {!selectedMon ? '' : selectedMon.types.map((type, key) => {
               return (
                 <MonType key={type.type.name} type={type.type.name}></MonType>
-                // <div key={type.type.name}>{type.type.name}</div>
               )
             })}
           </div>
@@ -69,7 +78,12 @@ function MonDetails() {
       <div className={styles.flavor_text}>{dexData[+id!]?.filter(dex => dex.language == 'en')[0].flavor_text}</div>
       {!selectedMon ? '' : selectedMon.stats.map((stat, key) => {
         return (
-          <div key={stat.stat.name}>{stat.stat.name} {stat.base_stat}</div>
+          <div key={stat.stat.name} className={styles.stat_container}>
+            <div className={styles.stat_name}>{_displayed_stats[stat.stat.name as keyof object]}</div>
+            <div style={{width: `80%`}}>
+              <ProgressBar progress={stat.base_stat/2.55} color="#3A94E7" />
+            </div>
+          </div>
         )
       })}
     </div>

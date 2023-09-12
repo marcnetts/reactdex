@@ -8,10 +8,13 @@
 .mon_container{
   height: 150px;
   width: 150px;
-  background-image: url('https://icon-library.com/images/pokeball-icon-transparent/pokeball-icon-transparent-28.jpg');
+  height: calc(50px + 5vw);
+  width: calc(50px + 5vw);
+  background-image: url(https://icon-library.com/images/pokeball-icon-transparent/pokeball-icon-transparent-28.jpg);
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   margin: 10px;
-  
   display: flex;
   align-items: center;
   justify-content: center;
