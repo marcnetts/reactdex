@@ -53,7 +53,6 @@ function Index() {
 
   return (
     <div className={styles.y_scroll}>
-      <div>asdasd</div>
       <div>{monData.length}</div>
       <div>{searchedMon}</div>
       {/* <Card id="1" titulo="Gato de Botas 2" capa="https://upload.wikimedia.org/wikipedia/pt/7/78/Puss_in_Boots_The_Last_Wish_poster.jpg" /> */}

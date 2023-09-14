@@ -1,6 +1,6 @@
 .SearchMonsArea {
   padding: 2em 1em 0em 1em;
-  width: 25vw;
+  max-width: 25vw;
   flex: none;
   max-height: 100%;
 }

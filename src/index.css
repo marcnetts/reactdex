@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika&family=Titillium+Web:wght@200;400&display=swap');
 body {
   margin: 0;
-  /* overflow: hidden; */
+  background-color: #FDFCFA;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 #root{
@@ -9,14 +11,13 @@ body {
   height: 100vh;
 }
 
+input[type=search]{
+  background-color: white;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
-
-/* ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 10px 10px green;
-  border: solid 3px transparent;
-} */
 
 ::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 10px 10px #26262689;

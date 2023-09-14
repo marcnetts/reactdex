@@ -5,4 +5,5 @@
   /* margin: 2em 20em; */
   max-height: 100%;
   overflow: hidden;
+  justify-content: space-between;
 }

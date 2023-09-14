@@ -23,7 +23,6 @@ export function SearchMonsArea() {
 
   return (
     <div className={styles.SearchMonsArea}>
-      <div>{searchedMon}</div>
       <input
         type="search"
         className={styles.input}

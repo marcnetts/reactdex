@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import styles from "./MonDetails.module.css";
 import axios from "axios";
 import { DexDataBasic, MonDataDex, UserContext } from "../../assets/contexts/UserContext";
@@ -62,7 +62,9 @@ function MonDetails() {
   return (
     <div className={styles.monDetails}>
       <div className={styles.mon_card}>
-        <img src={`https://www.centropkmn.com/pokes/dream-world/${selectedMon?.id}.svg`} alt={selectedMon?.name} className={styles.mon_svg} />
+        <div className={styles.mon_svg_div}>
+          <img src={`https://www.centropkmn.com/pokes/dream-world/${selectedMon?.id}.svg`} alt={selectedMon?.name} />
+        </div>
         <div className={styles.max_width}>
           <div>#{selectedMon?.id.toString().padStart(3, '0')}</div>
           <div className={styles.boldtext}>{selectedMon?.name.charAt(0).toUpperCase() + selectedMon?.name.slice(1)}</div>
@@ -76,16 +78,24 @@ function MonDetails() {
         </div>
       </div>
       <div className={styles.flavor_text}>{dexData[+id!]?.filter(dex => dex.language == 'en')[0].flavor_text}</div>
-      {!selectedMon ? '' : selectedMon.stats.map((stat, key) => {
-        return (
-          <div key={stat.stat.name} className={styles.stat_container}>
-            <div className={styles.stat_name}>{_displayed_stats[stat.stat.name as keyof object]}</div>
-            <div style={{width: `80%`}}>
-              <ProgressBar progress={stat.base_stat/2.55} color="#3A94E7" />
-            </div>
-          </div>
-        )
-      })}
+      <div className={styles.stats_grid}>
+        {!selectedMon ? '' : selectedMon.stats.map((stat, key) => {
+          return (
+            <Fragment key={stat.stat.name}>
+              <div className={styles.stat_name}>{_displayed_stats[stat.stat.name as keyof object]}</div>
+              <div className={styles.stat_bar}>
+                <ProgressBar progress={stat.base_stat/2.55} color="#3A94E7" />
+              </div>
+            </Fragment>
+            // <div key={stat.stat.name} className={styles.stat_container}>
+            //   <div className={styles.stat_name}>{_displayed_stats[stat.stat.name as keyof object]}</div>
+            //   <div className={styles.stat_bar}>
+            //     <ProgressBar progress={stat.base_stat/2.55} color="#3A94E7" />
+            //   </div>
+            // </div>
+          )
+        })}
+      </div>
     </div>
   );
 }

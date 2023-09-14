@@ -1,9 +1,12 @@
 .progbar, .progbar_fill{
-  height: 10px;
   border-radius: 20px;
+  height: 100%;
+  min-height: 10px;
 }
 
 .progbar{
   width: 100%;
+  height: 100%;
+  min-height: 10px;
   background-color: #D9D9D9;
 }

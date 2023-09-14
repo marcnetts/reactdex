@@ -4,6 +4,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 2em;
+  font-family: 'Andika', sans-serif;
+  text-transform: uppercase;
+  align-content: center;
 }
 
 .HeaderIconsGroup{
@@ -17,7 +20,6 @@
 
 .Header .title {
   color: white;
-  align-self: center;
 }
 
 .Header .HeaderIconsGroup, .Header .HeaderIconsGroup *{
