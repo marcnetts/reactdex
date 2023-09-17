@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styles from "./SearchMonsArea.module.css";
 import { UserContext } from "../../assets/contexts/UserContext";
 
@@ -11,9 +11,9 @@ export interface SearchMonsAreaProps {
 
 // export function SearchMonsArea({ prop = "default value", updateName }: SearchMonsAreaProps) {
 export function SearchMonsArea() {
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
   const {searchedMon, setSearchedMon} = useContext(UserContext);
-  const {monData, setMonData} = useContext(UserContext);
+  const {monData} = useContext(UserContext);
   
   const handleChange = (e: React.ChangeEvent<any>) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export function SearchMonsArea() {
         value={searchedMon}
       />
       <div className={styles.y_scroll + ' ' + styles.padding_top}>
-        {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon, key) => {
+        {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon) => {
             // return <Card {...mon} key={mon.id} />
             // return <div {...mon} key={mon.name}>{mon.name}</div>
             return (

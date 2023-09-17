@@ -19,7 +19,7 @@ function Index() {
   const [isLoading, setLoading] = useState<boolean>(true);
   // const [monsGeneralData, setMonsGeneralData] = useState<MonDataBasic[]>([]);
   const {monData, setMonData} = useContext(UserContext);
-  const {searchedMon, setSearchedMon} = useContext(UserContext);
+  const {searchedMon} = useContext(UserContext);
   // const [searchInput, setSearchInput] = useState(searchedMon);
   // const searchInput = useContext(MyContext)
 
@@ -58,7 +58,7 @@ function Index() {
       {/* <Card id="1" titulo="Gato de Botas 2" capa="https://upload.wikimedia.org/wikipedia/pt/7/78/Puss_in_Boots_The_Last_Wish_poster.jpg" /> */}
       <section className={styles.container}>
         {/* {monData.sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon, key) => { */}
-        {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon, key) => {
+        {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon) => {
           // return <Card {...mon} key={mon.id} />
           // return <div {...mon} key={mon.name}>{mon.name}</div>
           return (

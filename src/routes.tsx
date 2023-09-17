@@ -3,9 +3,9 @@ import { Header } from "./components/Header";
 import { Footer, SearchMonsArea } from "./components";
 import Container from "./components/Container";
 import Index from "./pages/Index";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { UserContext, UserContextProvider } from "./assets/contexts/UserContext";
+import { UserContextProvider } from "./assets/contexts/UserContext";
 import MonDetails from "./pages/MonDetails/MonDetails";
 
 interface MonDataBasic{
@@ -14,12 +14,12 @@ interface MonDataBasic{
 }
 
 function AppRoutes() {
-  const [searchInput, setSearchInput] = useState<string>("");
-  const [isLoading, setLoading] = useState<boolean>();
+  // const [searchInput, setSearchInput] = useState<string>("");
+  // const [isLoading, setLoading] = useState<boolean>();
   const [monsGeneralData, setMonsGeneralData] = useState<MonDataBasic[]>([]);
     
   async function getAllMons() {
-    setLoading(true);
+    // setLoading(true);
     var endpoints = [];
     for (let index = 1; index < 50; index++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${index}/`);
@@ -30,7 +30,7 @@ function AppRoutes() {
       .then((response) => {
         apiMonData.push(response.data);
         setMonsGeneralData(apiMonData);})));
-    setLoading(false);
+    // setLoading(false);
   }
 
   useEffect(() => {

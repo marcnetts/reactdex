@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 import styles from "./Header.module.css";
 
@@ -7,6 +7,7 @@ export interface HeaderProps {
 }
 
 export function Header({ prop = "default value" }: HeaderProps) {
+  prop;
   return (
     <header className={styles.Header}>
       <h1 className={styles.title}>Reactdex</h1>

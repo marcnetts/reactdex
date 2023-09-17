@@ -1,7 +1,7 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import styles from "./MonDetails.module.css";
 import axios from "axios";
-import { DexDataBasic, MonDataDex, UserContext } from "../../assets/contexts/UserContext";
+import { MonDataDex, UserContext } from "../../assets/contexts/UserContext";
 import { MonDataBasic } from "../../assets/contexts/UserContext";
 import { useParams } from "react-router-dom";
 import MonType from "../../components/MonType";
@@ -15,7 +15,7 @@ export interface IndexProps {
 function MonDetails() {
   const [isLoading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
-  const {monData, setMonData} = useContext(UserContext);
+  const {monData} = useContext(UserContext);
   const {dexData, setDexData} = useContext(UserContext);
 
   var selectedMon = monData.filter(mon => mon.id == +id!)[0];
@@ -65,7 +65,7 @@ function MonDetails() {
           <div>#{selectedMon?.id.toString().padStart(3, '0')}</div>
           <div className={styles.boldtext}>{selectedMon?.name.charAt(0).toUpperCase() + selectedMon?.name.slice(1)}</div>
           <div>
-            {!selectedMon ? '' : selectedMon.types.map((type, key) => {
+            {!selectedMon ? '' : selectedMon.types.map((type) => {
               return (
                 <MonType key={type.type.name} type={type.type.name}></MonType>
               )
@@ -75,7 +75,7 @@ function MonDetails() {
       </div>
       <div className={styles.flavor_text}>{dexData[+id!]?.filter(dex => dex.language == 'en')[0].flavor_text}</div>
       <div className={styles.stats_grid}>
-        {!selectedMon ? '' : selectedMon.stats.map((stat, key) => {
+        {!selectedMon ? '' : selectedMon.stats.map((stat) => {
           return (
             <Fragment key={stat.stat.name}>
               <div className={styles.stat_name}>{_displayed_stats[stat.stat.name as keyof object]}</div>
