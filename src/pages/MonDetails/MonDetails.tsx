@@ -9,7 +9,6 @@ import ProgressBar from "../../components/ProgressBar";
 
 export interface IndexProps {
   searchedMon: string,
-  // setSearchedMon: (newState: string) => void,
   monData: MonDataBasic[]
 }
 
@@ -20,7 +19,6 @@ function MonDetails() {
   const {dexData, setDexData} = useContext(UserContext);
 
   var selectedMon = monData.filter(mon => mon.id == +id!)[0];
-  // const dexEntries: [{id: number }] = []
 
   useEffect(() => {
     if(!dexData[+id!]){
@@ -29,21 +27,19 @@ function MonDetails() {
   }, [])
 
   async function getDexData(){
-    setLoading(true);  
+    setLoading(true);
     axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
     .then((response) => {
       dexData[+id!] = [{ flavor_text: '', language: '' }];
       dexData[+id!].pop();
-      (response.data as MonDataDex).flavor_text_entries.forEach(dex => {
-        if(dex.version.name == 'shield')
-          dexData[+id!].push({flavor_text: dex.flavor_text.replace('\n', ' '), language: dex.language.name})
-      });
+      let dex = (response.data as MonDataDex).flavor_text_entries.filter(dex => dex.language.name == 'en').slice(-1)[0];
+      dexData[+id!].push({flavor_text: dex.flavor_text.replace('\n', ' '), language: dex.language.name});
       setDexData(dexData);
+      setLoading(false);
     })
     .catch((err) => {
       console.error("getDexData err: " + err);
     });
-    setLoading(false);
   }
 
   const _displayed_stats = {
@@ -87,12 +83,6 @@ function MonDetails() {
                 <ProgressBar progress={stat.base_stat/2.55} color="#3A94E7" />
               </div>
             </Fragment>
-            // <div key={stat.stat.name} className={styles.stat_container}>
-            //   <div className={styles.stat_name}>{_displayed_stats[stat.stat.name as keyof object]}</div>
-            //   <div className={styles.stat_bar}>
-            //     <ProgressBar progress={stat.base_stat/2.55} color="#3A94E7" />
-            //   </div>
-            // </div>
           )
         })}
       </div>

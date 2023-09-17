@@ -17,11 +17,7 @@ function AppRoutes() {
   const [searchInput, setSearchInput] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>();
   const [monsGeneralData, setMonsGeneralData] = useState<MonDataBasic[]>([]);
-  
-  const updateSearchedMon = (name: string):void => {
-    // setSearchInput(name)
-  }
-  
+    
   async function getAllMons() {
     setLoading(true);
     var endpoints = [];
