@@ -16,11 +16,11 @@ function AppRoutes() {
           <SearchMonsArea></SearchMonsArea>
           <Index />
             <Routes>
-            {/* <Route path="/" element={<Index searchedMon={searchInput} monData={monsGeneralData} />}></Route> */}
-            <Route path="/mon/:id" element={<MonDetails />}></Route>
-          </Routes>
-        </UserContextProvider>
-      </Container>
+              <Route path="/" element={<></>}></Route>
+              <Route path="/mon/:id" element={<MonDetails />}></Route>
+            </Routes>
+          </UserContextProvider>
+        </Container>
       <Footer />
     </BrowserRouter>
   );
