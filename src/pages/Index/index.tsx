@@ -11,6 +11,7 @@ export interface IndexProps {
 }
 
 function Index() {
+  const navigate = useNavigate();
   const [isLoading, setLoading] = useState<boolean>(true);
   const {monData, setMonData} = useContext(UserContext);
   const {searchedMon} = useContext(UserContext);
@@ -40,7 +41,6 @@ function Index() {
   if (isLoading) {
     return <div className={styles.y_scroll}>Loading...</div>;
   }
-  // const navigate = useNavigate();
   return (
     <div className={styles.y_scroll}>
       <div>{monData.length}</div>
@@ -50,8 +50,7 @@ function Index() {
           // return <Card {...mon} key={mon.id} />
           return (
             <div key={mon.order} className={styles.mon_container}>
-              <a href={`/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); window.history.replaceState("", "",`/mon/${mon.id}`);
-              }} className={styles.mon_link}>
+              <a href={`/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`/mon/${mon.id}`);}} className={styles.mon_link}>
                 <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.id}.svg`} alt={mon.name} className={styles.mon_svg} />
                 <div className={styles.mon_number}># {mon.id.toString().padStart(3, '0')}</div>
               </a>

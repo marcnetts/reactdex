@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styles from "./SearchMonsArea.module.css";
 import { UserContext } from "../../assets/contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export interface SearchMonsAreaProps {
   // prop?: string,
@@ -12,6 +13,7 @@ export interface SearchMonsAreaProps {
 // export function SearchMonsArea({ prop = "default value", updateName }: SearchMonsAreaProps) {
 export function SearchMonsArea() {
   // const [searchInput, setSearchInput] = useState("");
+  const navigate = useNavigate();
   const {searchedMon, setSearchedMon} = useContext(UserContext);
   const {monData} = useContext(UserContext);
   
@@ -36,7 +38,7 @@ export function SearchMonsArea() {
             // return <div {...mon} key={mon.name}>{mon.name}</div>
             return (
               <div key={mon.order} className={styles.mon_container}>
-                <a href={`/mon/${mon.id}`} className={styles.mon_link}>
+                <a href={`/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`/mon/${mon.id}`);}} className={styles.mon_link}>
                   <div className={styles.mon_number}>#{mon.id.toString().padStart(3, '0')}</div> <div>{mon.name.charAt(0).toUpperCase() + mon.name.slice(1)}</div>
                 </a>
               </div>
