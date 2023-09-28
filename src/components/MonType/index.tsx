@@ -10,6 +10,7 @@ const _color_types = {
   'psychic': '#E986CD',
   'flying': '#86E9D1',
   'grass': '#8EE986',
+  'bug': '#A6CD7A',
   'poison': '#CF86E9',
   'fire': '#F45F5F',
   'electric': '#E9C134',
@@ -20,7 +21,7 @@ const _color_types = {
   'ground': '#C07C2B',
   'ghost': '#6334E9',
   'dragon': '#CF34E9',
-  'metal': '#868686',
+  'steel': '#868686',
   'dark': '#171717',
   'fairy': '#EF56D7',
   '???': '#68A090'

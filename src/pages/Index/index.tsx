@@ -24,7 +24,7 @@ function Index() {
   async function getAllMons() {
     setLoading(true);
     let endpoints = [];
-    for (let index = 1; index <= 50; index++) {
+    for (let index = 1; index <= 649; index++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${index}/`);
     }
     
@@ -43,10 +43,8 @@ function Index() {
   }
   return (
     <div className={styles.y_scroll}>
-      <div>{monData.length}</div>
-      <div>{searchedMon}</div>
       <section className={styles.container}>
-        {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.order > b.order ? 1 : -1}).map((mon) => {
+        {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.id > b.id ? 1 : -1}).map((mon) => {
           // return <Card {...mon} key={mon.id} />
           return (
             <div key={mon.order} className={styles.mon_container}>

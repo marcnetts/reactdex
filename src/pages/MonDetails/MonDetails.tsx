@@ -24,7 +24,7 @@ function MonDetails() {
     if(!dexData[+id!]){
       getDexData();
     }
-  }, [])
+  }, [id])
 
   async function getDexData(){
     setLoading(true);
@@ -51,7 +51,7 @@ function MonDetails() {
     'speed': 'Speed',
   }
 
-  if (isLoading) {
+  if (!selectedMon) {
     return <div className={styles.monDetails}>Loading...</div>;
   }
 
@@ -73,7 +73,7 @@ function MonDetails() {
           </div>
         </div>
       </div>
-      <div className={styles.flavor_text}>{dexData[+id!]?.filter(dex => dex.language == 'en')[0].flavor_text}</div>
+      <div className={styles.flavor_text}>{!dexData[+id!] ? 'Loading...' : dexData[+id!]?.filter(dex => dex.language == 'en')[0].flavor_text}</div>
       <div className={styles.stats_grid}>
         {!selectedMon ? '' : selectedMon.stats.map((stat) => {
           return (

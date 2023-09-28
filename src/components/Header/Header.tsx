@@ -1,5 +1,8 @@
 // import React from "react";
-
+import logo_vite from "../../img/logo-vite.png";
+import logo_react from "../../img/logo-react.svg";
+import logo_ts from "../../img/logo-ts.png";
+import logo_gh from "../../img/logo-github.png";
 import styles from "./Header.module.css";
 
 export interface HeaderProps {
@@ -13,23 +16,23 @@ export function Header({ prop = "default value" }: HeaderProps) {
       <h1 className={styles.title}>Reactdex</h1>
       <div className={styles.HeaderIconsGroup}>
         <div className={styles.HeaderIcon}>
-          <a href="https://vitejs.dev/">
-            <img src="https://vitejs.dev/logo-with-shadow.png" alt="Vite" />
+          <a href="https://vitejs.dev/" target="blank">
+            <img src={logo_vite} alt="Vite" />
           </a>
         </div>
         <div className={styles.HeaderIcon}>
-          <a href="https://react.dev/">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" alt="React" />
+          <a href="https://react.dev/" target="blank">
+            <img src={logo_react} alt="React" />
           </a>
         </div>
         <div className={styles.HeaderIcon}>
-          <a href="https://www.typescriptlang.org/">
-            <img src="https://raw.githubusercontent.com/rmolinamir/typescript-cheatsheet/master/TypeScript.png" alt="Typescript" />
+          <a href="https://www.typescriptlang.org/" target="blank">
+            <img src={logo_ts} alt="Typescript" />
           </a>
         </div>
         <div className={styles.HeaderIcon}>
-          <a href="https://github.com/marcnetts/reactdex">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
+          <a href="https://github.com/marcnetts/reactdex" target="blank">
+            <img src={logo_gh} alt="GitHub" />
           </a>
         </div>
       </div>
