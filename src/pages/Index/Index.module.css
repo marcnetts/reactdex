@@ -10,7 +10,7 @@
   width: 150px;
   height: calc(50px + 5vw);
   width: calc(50px + 5vw);
-  background-image: url(https://icon-library.com/images/pokeball-icon-transparent/pokeball-icon-transparent-28.jpg);
+  background-image: url('../src/img/background-pokeball.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

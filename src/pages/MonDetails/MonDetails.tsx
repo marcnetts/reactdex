@@ -3,7 +3,7 @@ import styles from "./MonDetails.module.css";
 import axios from "axios";
 import { MonDataDex, UserContext } from "../../assets/contexts/UserContext";
 import { MonDataBasic } from "../../assets/contexts/UserContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MonType from "../../components/MonType";
 import ProgressBar from "../../components/ProgressBar";
 
@@ -13,6 +13,7 @@ export interface IndexProps {
 }
 
 function MonDetails() {
+  const navigate = useNavigate();
   const [isLoading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
   const {monData} = useContext(UserContext);
@@ -62,7 +63,12 @@ function MonDetails() {
           <img src={`https://www.centropkmn.com/pokes/dream-world/${selectedMon?.id}.svg`} alt={selectedMon?.name} />
         </div>
         <div className={styles.max_width}>
-          <div>#{selectedMon?.id.toString().padStart(3, '0')}</div>
+          <div className={styles.number_btn_container}>
+            <div>#{selectedMon?.id.toString().padStart(3, '0')}</div>
+            <a href={`../`} onClick={(e) => {e.preventDefault(); navigate('../');}} className={styles.close_link}>
+              <div className={styles.close_btn}>✖</div>
+            </a>
+          </div>
           <div className={styles.boldtext}>{selectedMon?.name.charAt(0).toUpperCase() + selectedMon?.name.slice(1)}</div>
           <div>
             {!selectedMon ? '' : selectedMon.types.map((type) => {
