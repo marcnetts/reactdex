@@ -4,6 +4,7 @@ import axios from "axios";
 import { UserContext } from "../../assets/contexts/UserContext";
 import { MonDataBasic } from "../../assets/contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import bg_ball from "../../img/background-ball.png";
 
 export interface IndexProps {
   searchedMon: string,
@@ -47,7 +48,7 @@ function Index() {
         {monData.filter(mon => mon.name.includes(searchedMon) ).sort((a, b) => {return a.id > b.id ? 1 : -1}).map((mon) => {
           // return <Card {...mon} key={mon.id} />
           return (
-            <div key={mon.order} className={styles.mon_container}>
+            <div key={mon.order} className={styles.mon_container} style={{backgroundImage: `url(${bg_ball})`}}>
               <a href={`/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`/mon/${mon.id}`);}} className={styles.mon_link}>
                 <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.id}.svg`} alt={mon.name} className={styles.mon_svg} />
                 <div className={styles.mon_number}># {mon.id.toString().padStart(3, '0')}</div>

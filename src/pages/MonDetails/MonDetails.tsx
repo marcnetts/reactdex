@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import styles from "./MonDetails.module.css";
 import axios from "axios";
 import { MonDataDex, UserContext } from "../../assets/contexts/UserContext";
@@ -14,7 +14,7 @@ export interface IndexProps {
 
 function MonDetails() {
   const navigate = useNavigate();
-  const [isLoading, setLoading] = useState<boolean>(true);
+  // const [isLoading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
   const {monData} = useContext(UserContext);
   const {dexData, setDexData} = useContext(UserContext);
@@ -28,7 +28,7 @@ function MonDetails() {
   }, [id])
 
   async function getDexData(){
-    setLoading(true);
+    // setLoading(true);
     axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
     .then((response) => {
       dexData[+id!] = [{ flavor_text: '', language: '' }];
@@ -36,7 +36,7 @@ function MonDetails() {
       let dex = (response.data as MonDataDex).flavor_text_entries.filter(dex => dex.language.name == 'en').slice(-1)[0];
       dexData[+id!].push({flavor_text: dex.flavor_text.replace('\n', ' '), language: dex.language.name});
       setDexData(dexData);
-      setLoading(false);
+      // setLoading(false);
     })
     .catch((err) => {
       console.error("getDexData err: " + err);
