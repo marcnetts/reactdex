@@ -10,7 +10,7 @@
 .mon_card{
   display: flex;
   text-align: justify;
-  width: 100% !important;
+  align-items: center;
 }
 
 .flavor_text{
@@ -101,4 +101,10 @@
 .number_btn_container{
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 450px) {
+  .mon_card{
+    flex-direction: column;
+  }
 }

@@ -22,18 +22,43 @@
   color: white;
 }
 
-.Header .HeaderIconsGroup, .Header .HeaderIconsGroup *{
+.Header .HeaderIconsGroup {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.Header .HeaderIconsGroup *{
-  height: 100%;
+.Header .HeaderIconsGroup * img{
+  display: block;
 }
 
-.Header .HeaderIconsGroup * img{
-  height: 80%;
+.HeaderIcon{
   padding: 0 .2em;
-  display: block;
+  width: 40px;
+}
+
+.HeaderIcon a{
+  display: contents;
+}
+
+.HeaderIcon a img{
+  max-height: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 450px) {
+  .Header{
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: .5em;
+  }
+  .HeaderIconsGroup{
+    width: 100%;
+    justify-content: space-around;
+    height: auto;
+  }
+  
+  .HeaderIcon{
+    width: 30px;
+  }
 }
