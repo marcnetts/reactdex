@@ -16,6 +16,7 @@ function Index() {
   const [isLoading, setLoading] = useState<boolean>(true);
   const {monData, setMonData} = useContext(UserContext);
   const {searchedMon} = useContext(UserContext);
+  isLoading;
 
   useEffect(() => {
     if(monData.length == 0)
@@ -39,9 +40,14 @@ function Index() {
       })));
   }
   
-  if (isLoading) {
-    return <div className={styles.y_scroll}>Loading...</div>;
+  if (monData.length == 0) {
+    return (
+    <div className={styles.y_scroll}>
+      <section className={styles.container}>Loading...</section>
+    </div>
+    );
   }
+
   return (
     <div className={styles.y_scroll}>
       <section className={styles.container}>
@@ -50,7 +56,7 @@ function Index() {
           return (
             <div key={mon.order} className={styles.mon_container} style={{backgroundImage: `url(${bg_ball})`}}>
               <a href={`#/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`mon/${mon.id}`);}} className={styles.mon_link}>
-                <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.id}.svg`} alt={mon.name} className={styles.mon_svg} />
+                <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.id}.svg`} alt={mon.name} className={styles.mon_svg} loading="lazy" />
                 <div className={styles.mon_number}># {mon.id.toString().padStart(3, '0')}</div>
               </a>
             </div>
