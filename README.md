@@ -13,4 +13,6 @@ https://marcnetts.github.io/
 ## Asset credits
 Favicon from [Iconfinder](https://www.iconfinder.com/icons/3151571/pokedex_video_game_icon).
 
+Search symbol from [Flaticon](https://www.flaticon.com/free-icon/search_149852).
+
 Pokéball background from [Trainer Card Maker](https://tcm.pokecharms.com/modern).

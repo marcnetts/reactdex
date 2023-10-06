@@ -49,7 +49,7 @@ function Index() {
           // return <Card {...mon} key={mon.id} />
           return (
             <div key={mon.order} className={styles.mon_container} style={{backgroundImage: `url(${bg_ball})`}}>
-              <a href={`/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`/mon/${mon.id}`);}} className={styles.mon_link}>
+              <a href={`/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`./mon/${mon.id}`);}} className={styles.mon_link}>
                 <img src={`https://www.centropkmn.com/pokes/dream-world/${mon.id}.svg`} alt={mon.name} className={styles.mon_svg} />
                 <div className={styles.mon_number}># {mon.id.toString().padStart(3, '0')}</div>
               </a>
