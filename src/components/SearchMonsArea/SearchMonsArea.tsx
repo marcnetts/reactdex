@@ -36,7 +36,7 @@ export function SearchMonsArea() {
             // return <Card {...mon} key={mon.id} />
             return (
               <div key={mon.order} className={styles.mon_container}>
-                <a href={`/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`./mon/${mon.id}`);}} className={styles.mon_link}>
+                <a href={`#/mon/${mon.id}`} onClick={(e) => {e.preventDefault(); navigate(`mon/${mon.id}`);}} className={styles.mon_link}>
                   <div className={styles.mon_number}>#{mon.id.toString().padStart(3, '0')}</div> <div>{mon.name.charAt(0).toUpperCase() + mon.name.slice(1)}</div>
                 </a>
               </div>

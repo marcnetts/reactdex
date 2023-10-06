@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer, SearchMonsArea } from "./components";
 import Container from "./components/Container";
@@ -9,7 +9,7 @@ import MonDetails from "./pages/MonDetails/MonDetails";
 function AppRoutes() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Container>
         <UserContextProvider>
@@ -22,7 +22,7 @@ function AppRoutes() {
           </UserContextProvider>
         </Container>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
